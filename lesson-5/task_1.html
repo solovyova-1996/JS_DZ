@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <script>
+        function createTd(nameClass, content = '') {
+            let td = document.createElement('td');
+            td.innerHTML = content
+            td.classList.add(nameClass)
+            return td
+        }
+        function createChessBoard() {
+            var mainBlock = document.querySelector('body')
+            var table = document.createElement('table')
+            let colorCell = false;
+            let count = 8
+            let charCode = 65
+            for (let j = 0; j < 10; j++) {
+                let tr = document.createElement('tr');
+                let charCode = 65
+                for (let i = 0; i < 10; i++) {
+                    if ((i == 0 || i == 9) && j != 9 && j != 0) {
+                        tr.appendChild(createTd("white-letter", count));
+                        if (i == 9) count--
+                        if (i == 0) colorCell = !colorCell
+                    } else if ((i == 0 || i == 9) && (j == 9 || j == 0)) {
+                        tr.appendChild(createTd('while-l'));
+
+                    } else if ((j == 9 || j == 0) && i != 0) {
+                        tr.appendChild(createTd('white-letter', String.fromCharCode(charCode)));
+                        charCode++
+                    } else {
+                        if (colorCell) tr.appendChild(createTd('black'))
+                        else tr.appendChild(createTd('white'))
+
+                    }
+                    colorCell = !colorCell
+
+                }
+
+                table.appendChild(tr);
+            }
+
+            mainBlock.appendChild(table)
+            return mainBlock
+
+        }
+
+        createChessBoard()
+    </script>
+</body>
+
+</html>
