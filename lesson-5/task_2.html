@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        let basket = {
+            product: [['Футболка', 3, 400], ['Джинсы', 2, 1200], ['Толстовка', 1, 890], ['Майка', 2, 1000]],
+            getSummProduct() {
+                return this.product.reduce(function (result, basketItem) {
+                    return result + basketItem[1] * basketItem[2]
+                }, 0)
+            },
+            numberPosition() {
+                return this.product.reduce(function (result, basketItem) {
+                    return result + basketItem[1]
+                }, 0)
+            },
+            isEmpty() {
+                if (this.product.length > 0) return `В корзине: ${this.numberPosition()} товаров на сумму ${this.getSummProduct()} рублей`
+                else return 'Корзина пуста'
+            }
+
+        }
+        let newEl = document.createElement('p')
+        newEl.innerHTML = basket.isEmpty()
+        let parentEl = document.querySelector('div')
+        parentEl.appendChild(newEl)
+    </script>
+</body>
+
+</html>
