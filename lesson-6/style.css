@@ -1,0 +1,13 @@
+.good{
+    border: 5px solid #00BFFF;
+    margin-bottom: 5px;
+    background:#B0E0E6 ;
+}
+h3 {
+    text-align: center;
+}
+.goodCatalog {
+    border: 5px solid #FFDAB9;
+    margin-bottom: 5px;
+    background:#FAF0E6 ;
+}
